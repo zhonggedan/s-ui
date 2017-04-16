@@ -16,8 +16,9 @@
 </template>
 
 <script>
-  import { requestLogin } from '../api/api';
+  import { requestLogin,getMenu } from '../api/api';
   //import NProgress from 'nprogress'
+  import Foo from '@/views/Foo'
   export default {
     data() {
       return {
@@ -38,6 +39,24 @@
         },
         checked: true
       };
+    },
+    created(){
+      
+      // console.log(this.$router);
+      // getMenu().then(data=>{
+      //   console.log(data.data.routes);
+      //   this.$router.addRoutes(data.data.routes);
+      // })
+    },
+    mounted(){
+      var that = this;
+      getMenu().then(data => {
+        that.$router.addRoutes(data);
+        for(let route of data){
+          that.$router.options.routes.push(route);
+        }
+        console.log(that.$router.options.routes);
+      })
     },
     methods: {
       handleReset2() {

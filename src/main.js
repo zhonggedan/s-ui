@@ -11,7 +11,13 @@ import Vuex from 'vuex'
 //import 'nprogress/nprogress.css'
 import routes from './routes'
 import Mock from './mock'
+
+
 Mock.bootstrap();
+import {
+  getMenu
+} from '@/api/api';
+
 import 'font-awesome/css/font-awesome.min.css'
 //shshshs
 Vue.use(ElementUI)
@@ -23,6 +29,7 @@ Vue.use(Vuex)
 const router = new VueRouter({
   routes
 })
+
 
 router.beforeEach((to, from, next) => {
   //NProgress.start();
