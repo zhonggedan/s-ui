@@ -12,14 +12,10 @@ import Vuex from 'vuex'
 import routes from './routes'
 import Mock from './mock'
 
-
 Mock.bootstrap();
-import {
-  getMenu
-} from '@/api/api';
 
 import 'font-awesome/css/font-awesome.min.css'
-//shshshs
+
 Vue.use(ElementUI)
 Vue.use(VueRouter)
 Vue.use(Vuex)

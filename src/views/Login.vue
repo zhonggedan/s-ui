@@ -42,18 +42,15 @@
     },
     created(){
       
-      // console.log(this.$router);
-      // getMenu().then(data=>{
-      //   console.log(data.data.routes);
-      //   this.$router.addRoutes(data.data.routes);
-      // })
+
     },
     mounted(){
       var that = this;
       getMenu().then(data => {
-        that.$router.addRoutes(data);
-        for(let route of data){
-          that.$router.options.routes.push(route);
+        console.log(data.data.routes);
+        that.$router.addRoutes(data.data.routes);
+        for(let route of data.data.routes){
+          this.$router.options.routes.push(route);
         }
         console.log(that.$router.options.routes);
       })
